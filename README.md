@@ -1,2 +1,3 @@
 # dotvim
+
 My vim configuration

@@ -53,16 +53,21 @@ call vundle#begin()
 Plugin 'VundleVim/Vundle.vim'
 
 Plugin 'chriskempson/base16-vim'
-
+Plugin 'itchyny/lightline.vim'
 Plugin 'airblade/vim-gitgutter'
-
+Plugin 'myusuf3/numbers.vim'
 Plugin 'ryanoasis/vim-devicons'
-
 Plugin 'ctrlpvim/ctrlp.vim'
 Plugin 'scrooloose/nerdtree'
 Plugin 'valloric/youcompleteme'
+Plugin 'ervandew/supertab'
 
-" All of your Plugins must be added before the following line
+Plugin 'pangloss/vim-javascript'
+Plugin 'fatih/vim-go'
+Plugin 'godlygeek/tabular'
+Plugin 'plasticboy/vim-markdown'
+Plugin 'klen/python-mode'
+
 call vundle#end()            " required
 filetype plugin indent on    " required
 " To ignore plugin indent changes, instead use:
@@ -75,11 +80,11 @@ filetype plugin indent on    " required
 " :PluginClean      - confirms removal of unused plugins; append `!` to auto-approve removal
 "
 " see :h vundle for more details or wiki for FAQ
-" Put your non-Plugin stuff after this line
 
 "
 " Syntax & Theme
 "
+set t_Co=256
 let base16colorspace=256
 set background=dark
 colorscheme base16-default-dark
@@ -151,6 +156,33 @@ augroup END
 "
 let mapleader = ","
 
+" ,ln toggles line numbers
+nnoremap <leader>ln :setlocal number!<cr>
+
+" ,i toggles invisible characters
+nnoremap <leader>i :set list!<cr>
+
+" ,tn go to next tab
+nnoremap <leader>tn :tabnext<cr>
+" ,tp go to previous tab
+nnoremap <leader>tp :tabprevious<cr>
+" ,tt create new tab
+nnoremap <leader>tt :tabnew!<cr>
+" ,tw close tab
+nnoremap <leader>tw :tabclose!<cr>
+
+" ,wu up window
+nnoremap <leader>wu <c-w>k<cr>
+" ,wd down windows
+nnoremap <leader>wd <c-w>j<cr>
+" ,wn next window
+nnoremap <leader>wn <c-w>l<cr>
+" ,wp previous window
+nnoremap <leader>wp <c-w>h<cr>
+
+" ,<space> clear hightlight until next search
+nnoremap <leader><space> :noh<cr>
+
 
 "
 " NerdTree Configuration
@@ -171,3 +203,64 @@ autocmd VimEnter * if !argc() | NERDTree | endif
 "
 " ,p calls ControlP plugin
 :map ,p :CtrlP<cr>
+
+
+"
+" LightLine Configuration
+"
+let g:lightline = {
+    \ 'colorscheme': 'jellybeans',
+    \ 'component': { 'readonly': '%{&readonly?"":""}' },
+    \ 'separator': { 'left': '', 'right': '' },
+    \ 'subseparator': { 'left': '|', 'right': '|' }
+    \ }
+
+"
+" Numbers Configuration
+"
+let g:numbers_exclude = ['tagbar', 'nerdtree']
+
+"
+" Vim Javascript configuration
+"
+let g:javascript_plugin_jsdoc = 1
+let g:javascript_conceal_function             = "ƒ"
+let g:javascript_conceal_null                 = "ø"
+let g:javascript_conceal_this                 = "@"
+let g:javascript_conceal_return               = "⇚"
+let g:javascript_conceal_undefined            = "¿"
+let g:javascript_conceal_NaN                  = "ℕ"
+let g:javascript_conceal_prototype            = "¶"
+let g:javascript_conceal_static               = "•"
+let g:javascript_conceal_super                = "Ω"
+let g:javascript_conceal_arrow_function       = "⇒"
+set conceallevel=1
+
+"
+" Vim Go Configuration
+"
+let g:go_highlight_functions = 1
+let g:go_highlight_methods = 1
+let g:go_highlight_structs = 1
+let g:go_highlight_interfaces = 1
+let g:go_highlight_operators = 1
+let g:go_highlight_build_constraints = 1
+let g:go_fmt_command = "goimports"
+" Show type info for the word under your cursor
+au FileType go nmap <Leader>gi <Plug>(go-info)
+" Open the relevant Godoc for the word under the cursor
+au FileType go nmap <Leader>gd <Plug>(go-doc)
+au FileType go nmap <Leader>gv <Plug>(go-doc-vertical)
+" Open the Godoc in browser
+au FileType go nmap <Leader>gb <Plug>(go-doc-browser)
+
+
+"
+" Vim Markdown Configuration
+"
+let g:vim_markdown_folding_disabled = 1
+let g:vim_markdown_json_frontmatter = 1
+let g:vim_markdown_toml_frontmatter = 1
+let g:vim_markdown_frontmatter = 1
+let g:vim_markdown_math = 1
+
