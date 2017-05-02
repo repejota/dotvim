@@ -58,11 +58,11 @@ Plugin 'myusuf3/numbers.vim'
 Plugin 'ryanoasis/vim-devicons'
 Plugin 'ctrlpvim/ctrlp.vim'
 Plugin 'scrooloose/nerdtree'
-Plugin 'valloric/youcompleteme'
+Plugin 'valloric/youcompleteme', { 'do': './install.py --clang-completer --gocode-completer --tern-completer --racer-completer' }
 Plugin 'ervandew/supertab'
 
 Plugin 'pangloss/vim-javascript'
-Plugin 'fatih/vim-go'
+Plugin 'fatih/vim-go', { 'do': ':GoInstallBinaries', 'for': 'go' }
 Plugin 'godlygeek/tabular'
 Plugin 'plasticboy/vim-markdown'
 Plugin 'klen/python-mode'
@@ -201,7 +201,8 @@ let NERDTreeShowHidden=1
 autocmd VimEnter * if !argc() | NERDTree | endif
 " ,t calls NERDTree plugin
 :map ,t :NERDTreeToggle<cr>
-
+" Close vim if the only window left is a NERDTree
+autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isTabTree()) | q | endif
 
 "
 " ControlP Configuration
@@ -268,4 +269,28 @@ let g:vim_markdown_json_frontmatter = 1
 let g:vim_markdown_toml_frontmatter = 1
 let g:vim_markdown_frontmatter = 1
 let g:vim_markdown_math = 1
+
+
+"
+" YouCompleteMe Configuration
+"
+let g:acp_enableAtStartup = 0
+let g:ycm_always_populate_location_list = 0
+let g:ycm_auto_trigger=1
+let g:ycm_enable_diagnostic_highlighting=1
+let g:ycm_enable_diagnostic_signs=1
+let g:ycm_max_diagnostics_to_display=10000
+let g:ycm_min_num_identifier_candidate_chars=0
+let g:ycm_min_num_of_chars_for_completion=2
+let g:ycm_open_loclist_on_ycm_diags=1
+let g:ycm_show_diagnostics_ui=1
+let g:ycm_collect_identifiers_from_tags_files = 1
+let g:ycm_collect_identifiers_from_tags_files = 1
+autocmd FileType css setlocal omnifunc=csscomplete#CompleteCSS
+autocmd FileType html,markdown setlocal omnifunc=htmlcomplete#CompleteTags
+autocmd FileType javascript setlocal omnifunc=javascriptcomplete#CompleteJS
+autocmd FileType python setlocal omnifunc=pythoncomplete#Complete
+autocmd FileType xml setlocal omnifunc=xmlcomplete#CompleteTags
+autocmd FileType ruby setlocal omnifunc=rubycomplete#Complete
+autocmd FileType haskell setlocal omnifunc=necoghc#omnifunc
 
