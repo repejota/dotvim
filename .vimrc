@@ -53,6 +53,7 @@ Plugin 'VundleVim/Vundle.vim'
 
 Plugin 'chriskempson/base16-vim'
 Plugin 'itchyny/lightline.vim'
+Plugin 'daviesjamie/vim-base16-lightline'
 Plugin 'airblade/vim-gitgutter'
 Plugin 'myusuf3/numbers.vim'
 Plugin 'ryanoasis/vim-devicons'
@@ -215,7 +216,7 @@ autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isT
 " LightLine Configuration
 "
 let g:lightline = {
-    \ 'colorscheme': 'jellybeans',
+    \ 'colorscheme': 'base16',
     \ 'component': { 'readonly': '%{&readonly?"":""}' },
     \ 'separator': { 'left': '', 'right': '' },
     \ 'subseparator': { 'left': '|', 'right': '|' }
