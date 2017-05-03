@@ -110,7 +110,6 @@ set mousefocus
 "
 " Searching and Patterns
 "
-set showmatch
 set hlsearch                    " Highlight matches to the search
 set ignorecase                  " Search is case insensitive
 set smartcase                   " Search case sensitive if caps on
@@ -120,6 +119,7 @@ set incsearch                   " Show best match so far
 "
 " Display
 "
+set showmatch                   " show matching brackets/parenthesis
 set autoindent
 set history=1000
 set lazyredraw                  " Don't repaint when scripts are running
@@ -139,6 +139,13 @@ set laststatus=2                " Always show status bar
 set fillchars+=stl:\ ,stlnc:\
 set wrap
 set textwidth=0 wrapmargin=0
+" disable startup message
+set shortmess+=I
+" no folding
+set nofoldenable
+set foldlevel=99
+set foldminlines=99
+set foldlevelstart=99
 
 "
 " Ruler at 80, 120 and 999 columns
@@ -295,3 +302,22 @@ autocmd FileType xml setlocal omnifunc=xmlcomplete#CompleteTags
 autocmd FileType ruby setlocal omnifunc=rubycomplete#Complete
 autocmd FileType haskell setlocal omnifunc=necoghc#omnifunc
 
+"
+" Vim Gutter Configuration
+"
+let g:gitgutter_realtime = 1
+let g:gitgutter_eager = 1
+let g:gitgutter_max_signs = 1500
+let g:gitgutter_diff_args = '-w'
+" custom symbols
+let g:gitgutter_sign_added = '+'
+let g:gitgutter_sign_modified = '~'
+let g:gitgutter_sign_removed = '-'
+let g:gitgutter_sign_removed_first_line = '^'
+let g:gitgutter_sign_modified_removed = ':'
+" color overrrides
+highlight clear SignColumn
+highlight GitGutterAdd ctermfg=green ctermbg=235
+highlight GitGutterChange ctermfg=yellow ctermbg=235
+highlight GitGutterDelete ctermfg=red ctermbg=235
+highlight GitGutterChangeDelete ctermfg=red ctermbg=235
