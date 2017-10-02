@@ -61,7 +61,6 @@ Plugin 'ctrlpvim/ctrlp.vim'
 Plugin 'scrooloose/nerdtree'
 Plugin 'valloric/youcompleteme', { 'do': './install.py --clang-completer --gocode-completer --tern-completer --racer-completer' }
 Plugin 'ervandew/supertab'
-
 Plugin 'pangloss/vim-javascript'
 Plugin 'fatih/vim-go', { 'do': ':GoInstallBinaries', 'for': 'go' }
 Plugin 'godlygeek/tabular'
@@ -89,6 +88,11 @@ au FileType gitcommit au! BufEnter COMMIT_EDITMSG call setpos('.', [0, 1, 1, 0])
 "
 " Syntax & Theme
 "
+if filereadable(expand("~/.vimrc_background"))
+  let base16colorspace=256
+  source ~/.vimrc_background
+endif
+
 set t_Co=256
 let base16colorspace=256
 set background=dark
