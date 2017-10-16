@@ -59,10 +59,10 @@ Plugin 'myusuf3/numbers.vim'
 Plugin 'ryanoasis/vim-devicons'
 Plugin 'ctrlpvim/ctrlp.vim'
 Plugin 'scrooloose/nerdtree'
-Plugin 'valloric/youcompleteme', { 'do': './install.py --clang-completer --gocode-completer --tern-completer --racer-completer' }
+Plugin 'valloric/youcompleteme'
 Plugin 'ervandew/supertab'
 Plugin 'pangloss/vim-javascript'
-Plugin 'fatih/vim-go', { 'do': ':GoInstallBinaries', 'for': 'go' }
+Plugin 'fatih/vim-go', { 'do': ':GoInstallBinaries' }
 Plugin 'godlygeek/tabular'
 Plugin 'plasticboy/vim-markdown'
 Plugin 'klen/python-mode'
@@ -140,7 +140,7 @@ set showmode                    " Show current mode.
 set noswapfile                  " Don't use swapfile
 set nobackup                    " Don't create annoying backup files
 set laststatus=2                " Always show status bar
-set fillchars+=stl:\ ,stlnc:\
+set fillchars=""
 set wrap
 set textwidth=0 wrapmargin=0
 " disable startup message
@@ -172,9 +172,6 @@ augroup END
 " Leader mapping
 "
 let mapleader = ","
-
-" ,ln toggles line numbers
-nnoremap <leader>ln :setlocal number!<cr>
 
 " ,i toggles invisible characters
 nnoremap <leader>i :set list!<cr>
@@ -222,21 +219,20 @@ autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isT
 " ,p calls ControlP plugin
 :map ,p :CtrlP<cr>
 
-
 "
 " LightLine Configuration
 "
 let g:lightline = {
     \ 'colorscheme': 'base16',
     \ 'component': { 'readonly': '%{&readonly?"":""}' },
-    \ 'separator': { 'left': '', 'right': '' },
-    \ 'subseparator': { 'left': '|', 'right': '|' }
+	\ 'separator': { 'left': "", 'right': "" },
+	\ 'subseparator': { 'left': "|", 'right': "|" }
     \ }
 
 "
 " Numbers Configuration
 "
-let g:numbers_exclude = ['tagbar', 'nerdtree']
+let g:numbers_exclude = ['nerdtree']
 
 "
 " Vim Javascript configuration
@@ -264,6 +260,10 @@ let g:go_highlight_interfaces = 1
 let g:go_highlight_operators = 1
 let g:go_highlight_build_constraints = 1
 let g:go_fmt_command = "goimports"
+let g:go_metalinter_enabled = ['vet', 'golint', 'errcheck']
+let g:go_metalinter_autosave = 1
+let g:go_metalinter_autosave_enabled = ['vet', 'golint']
+let g:go_metalinter_deadline = "5s"
 " Show type info for the word under your cursor
 au FileType go nmap <Leader>gi <Plug>(go-info)
 " Open the relevant Godoc for the word under the cursor
@@ -281,7 +281,6 @@ let g:vim_markdown_json_frontmatter = 1
 let g:vim_markdown_toml_frontmatter = 1
 let g:vim_markdown_frontmatter = 1
 let g:vim_markdown_math = 1
-
 
 "
 " YouCompleteMe Configuration
@@ -304,7 +303,6 @@ autocmd FileType javascript setlocal omnifunc=javascriptcomplete#CompleteJS
 autocmd FileType python setlocal omnifunc=pythoncomplete#Complete
 autocmd FileType xml setlocal omnifunc=xmlcomplete#CompleteTags
 autocmd FileType ruby setlocal omnifunc=rubycomplete#Complete
-autocmd FileType haskell setlocal omnifunc=necoghc#omnifunc
 
 "
 " Vim Gutter Configuration
@@ -321,7 +319,7 @@ let g:gitgutter_sign_removed_first_line = '^'
 let g:gitgutter_sign_modified_removed = ':'
 " color overrrides
 highlight clear SignColumn
-highlight GitGutterAdd ctermfg=green ctermbg=235
-highlight GitGutterChange ctermfg=yellow ctermbg=235
-highlight GitGutterDelete ctermfg=red ctermbg=235
-highlight GitGutterChangeDelete ctermfg=red ctermbg=235
+highlight GitGutterAdd ctermfg=green 
+highlight GitGutterChange ctermfg=yellow
+highlight GitGutterDelete ctermfg=red
+highlight GitGutterChangeDelete ctermfg=red
