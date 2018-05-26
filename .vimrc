@@ -32,7 +32,6 @@ augroup cline
     au WinEnter,InsertLeave * set cursorline
 augroup END
 
-
 "
 " File types
 "
@@ -51,15 +50,10 @@ call vundle#begin()
 " let Vundle manage Vundle, required
 Plugin 'VundleVim/Vundle.vim'
 
-Plugin 'chriskempson/base16-vim'
-Plugin 'itchyny/lightline.vim'
-Plugin 'daviesjamie/vim-base16-lightline'
 Plugin 'airblade/vim-gitgutter'
 Plugin 'myusuf3/numbers.vim'
-Plugin 'ryanoasis/vim-devicons'
 Plugin 'ctrlpvim/ctrlp.vim'
 Plugin 'scrooloose/nerdtree'
-" Plugin 'valloric/youcompleteme'
 Plugin 'ervandew/supertab'
 Plugin 'pangloss/vim-javascript'
 Plugin 'fatih/vim-go', { 'do': ':GoInstallBinaries' }
@@ -68,6 +62,14 @@ Plugin 'plasticboy/vim-markdown'
 Plugin 'klen/python-mode'
 Plugin 'bash-support.vim'
 Plugin 'vim-scripts/bats.vim'
+
+" Plugin 'valloric/youcompleteme'
+
+Plugin 'chriskempson/base16-vim'
+Plugin 'itchyny/lightline.vim'
+Plugin 'daviesjamie/vim-base16-lightline'
+
+Plugin 'ryanoasis/vim-devicons'
 
 call vundle#end()            " required
 filetype plugin indent on    " required
