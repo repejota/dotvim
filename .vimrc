@@ -98,7 +98,7 @@ endif
 set t_Co=256
 let base16colorspace=256
 set background=dark
-" colorscheme base16-default-dark
+colorscheme base16-default-dark
 let g:solarized_base16 = 1
 let g:promptline_preset = 'full'
 let g:promptline_powerline_symbols = 1
