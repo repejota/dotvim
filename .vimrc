@@ -50,25 +50,26 @@ call vundle#begin()
 " let Vundle manage Vundle, required
 Plugin 'VundleVim/Vundle.vim'
 
+Plugin 'vim-scripts/bats.vim'
+Plugin 'plasticboy/vim-markdown'
+Plugin 'pangloss/vim-javascript'
+
+" Plugin 'bash-support.vim'
+" Plugin 'klen/python-mode'
+" Plugin 'fatih/vim-go', { 'do': ':GoInstallBinaries' }
+
 Plugin 'airblade/vim-gitgutter'
 Plugin 'myusuf3/numbers.vim'
 Plugin 'ctrlpvim/ctrlp.vim'
 Plugin 'scrooloose/nerdtree'
 Plugin 'ervandew/supertab'
-Plugin 'pangloss/vim-javascript'
-Plugin 'fatih/vim-go', { 'do': ':GoInstallBinaries' }
 Plugin 'godlygeek/tabular'
-Plugin 'plasticboy/vim-markdown'
-Plugin 'klen/python-mode'
-Plugin 'bash-support.vim'
-Plugin 'vim-scripts/bats.vim'
 
 " Plugin 'valloric/youcompleteme'
 
 Plugin 'chriskempson/base16-vim'
 Plugin 'itchyny/lightline.vim'
 Plugin 'daviesjamie/vim-base16-lightline'
-
 Plugin 'ryanoasis/vim-devicons'
 
 call vundle#end()            " required
