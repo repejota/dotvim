@@ -89,23 +89,6 @@ filetype plugin indent on    " required
 " set it to the first line when editing a git commit message
 au FileType gitcommit au! BufEnter COMMIT_EDITMSG call setpos('.', [0, 1, 1, 0])
 
-"
-" Syntax & Theme
-"
-if filereadable(expand("~/.vimrc_background"))
-  let base16colorspace=256
-  source ~/.vimrc_background
-endif
-
-set t_Co=256
-let base16colorspace=256
-set background=dark
-" colorscheme base16-default-dark
-let g:solarized_base16 = 1
-let g:promptline_preset = 'full'
-let g:promptline_powerline_symbols = 1
-let python_highlight_all=1
-syntax on
 
 "
 " Mouse support
@@ -328,3 +311,22 @@ highlight GitGutterAdd ctermfg=green
 highlight GitGutterChange ctermfg=yellow
 highlight GitGutterDelete ctermfg=red
 highlight GitGutterChangeDelete ctermfg=red
+
+"
+" Syntax & Theme
+"
+if filereadable(expand("~/.vimrc_background"))
+  let base16colorspace=256
+  source ~/.vimrc_background
+endif
+
+set t_Co=256
+let base16colorspace=256
+set background=dark
+colorscheme base16-default-dark
+let g:solarized_base16 = 1
+let g:promptline_preset = 'full'
+let g:promptline_powerline_symbols = 1
+let python_highlight_all=1
+syntax on
+
