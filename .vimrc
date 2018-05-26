@@ -66,6 +66,8 @@ Plugin 'fatih/vim-go', { 'do': ':GoInstallBinaries' }
 Plugin 'godlygeek/tabular'
 Plugin 'plasticboy/vim-markdown'
 Plugin 'klen/python-mode'
+Plugin 'bash-support.vim'
+Plugin 'vim-scripts/bats.vim'
 
 call vundle#end()            " required
 filetype plugin indent on    " required
@@ -279,8 +281,9 @@ au FileType go nmap <Leader>gb <Plug>(go-doc-browser)
 let g:vim_markdown_folding_disabled = 1
 let g:vim_markdown_json_frontmatter = 1
 let g:vim_markdown_toml_frontmatter = 1
-let g:vim_markdown_frontmatter = 1
+let g:vim_markdown_frontmatter = 0
 let g:vim_markdown_math = 1
+let g:vim_markdown_folding_level = 4
 
 "
 " YouCompleteMe Configuration
